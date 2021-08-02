@@ -38,7 +38,7 @@ This directory contains the LIS2MDL component drivers.
 
 ### First release
 
-- First official release
+- First official release [ref. DS v5.0]
 
 ##
 
