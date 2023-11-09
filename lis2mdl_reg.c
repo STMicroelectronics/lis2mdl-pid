@@ -96,7 +96,8 @@ float_t lis2mdl_from_lsb_to_mgauss(int16_t lsb)
 
 float_t lis2mdl_from_lsb_to_celsius(int16_t lsb)
 {
-  return (((float_t)lsb / 8.0f) + 25.0f);
+  /* 8 LSB/C - 12bit resolution */
+  return ((((float_t)lsb / 16.0f) / 8.0f) + 25.0f);
 }
 
 /**
