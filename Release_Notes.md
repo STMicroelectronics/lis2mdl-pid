@@ -59,7 +59,7 @@ This directory contains the LIS2MDL component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section3" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section3" aria-hidden="true">
 <label for="collapse-section3" aria-hidden="true">V1.1.1 / 09-Nov-2023</label>
 <div>
 
@@ -70,7 +70,23 @@ This directory contains the LIS2MDL component drivers.
 ##
 
 </div>
+
+<input type="checkbox" id="collapse-section4" checked aria-hidden="true">
+<label for="collapse-section4" aria-hidden="true">V2.0.0 / 20-Mar-2024</label>
+<div>
+
+## Main changes
+
+- Fixed code style (Artistic Style Version 3.4.13)
+- Fix driver's typo
+- Add "const" to ctx arg for all APIs
+- Revert "correct API to convert LSB to Celsius"
+
+##
+
+</div>
 :::
+
 
 :::
 :::
