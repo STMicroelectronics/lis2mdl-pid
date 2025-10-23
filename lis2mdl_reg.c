@@ -769,7 +769,56 @@ int32_t lis2mdl_device_id_get(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
+  * @brief  Software reset. Restore the default values in user registers.
+  *
+  * @param  ctx   read / write interface definitions.(ptr)
+  * @param  val   change the values of soft_rst in reg CFG_REG_A
+  * @retval       interface status.(MANDATORY: return 0 -> no Error)
+  *
+  */
+int32_t lis2mdl_sw_reset(const stmdev_ctx_t *ctx)
+{
+  lis2mdl_cfg_reg_a_t reg = {0};
+  uint8_t retry = {0};
+  int32_t ret;
+
+  if (ctx->mdelay == NULL)
+  {
+    ret = -1;
+    goto exit;
+  }
+
+  /* 1. Set the SOFT_RST bit of the CFG_REG_A register to 1. */
+  reg.soft_rst = 1;
+  ret = lis2mdl_write_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
+
+  if (ret != 0)
+  {
+    goto exit;
+  }
+
+  /* 2. Poll the SOFT_RST bit of the CFG_REG_A register until it returns
+   * to 0. (should require 5us) */
+  do {
+    ret += lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
+
+    if (ret != 0)
+    {
+      goto exit;
+    }
+
+    ctx->mdelay(1);
+  } while (reg.soft_rst == 1 && retry++ < 3);
+
+  return (reg.soft_rst == 0) ? 0 : -1;
+
+exit:
+  return ret;
+}
+
+/**
   * @brief  Software reset. Restore the default values in user registers.[set]
+  *         THIS ROUTINE IS DEPRECATED!
   *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of soft_rst in reg CFG_REG_A
@@ -794,6 +843,7 @@ int32_t lis2mdl_reset_set(const stmdev_ctx_t *ctx, uint8_t val)
 
 /**
   * @brief  Software reset. Restore the default values in user registers.[get]
+  *         THIS ROUTINE IS DEPRECATED!
   *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of soft_rst in reg CFG_REG_A.(ptr)
@@ -815,7 +865,50 @@ int32_t lis2mdl_reset_get(const stmdev_ctx_t *ctx, uint8_t *val)
 }
 
 /**
+  * @brief  Reboot memory content. Reload the calibration paramters.
+  * (20 ms boot procedure)
+  *
+  * @param  ctx   read / write interface definitions.(ptr)
+  * @param  val   change the values of soft_rst in reg CFG_REG_A.(ptr)
+  * @retval       interface status.(MANDATORY: return 0 -> no Error)
+  *
+  */
+int32_t lis2mdl_reboot(const stmdev_ctx_t *ctx)
+{
+  lis2mdl_cfg_reg_a_t reg;
+  int32_t ret;
+
+  if (ctx->mdelay == NULL) {
+    ret = -1;
+    goto exit;
+  }
+
+  ret = lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
+
+  if (ret != 0)
+  {
+    goto exit;
+  }
+
+  /* 1. Set the REBOOT bit of the CFG_REG_A register to 1. */
+  reg.reboot = 1;
+  ret = lis2mdl_write_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
+
+  if (ret != 0)
+  {
+    goto exit;
+  }
+
+  /* 2. Wait 20 ms for boot time */
+  ctx->mdelay(20);
+
+exit:
+  return ret;
+}
+
+/**
   * @brief  Reboot memory content. Reload the calibration parameters.[set]
+  *         THIS ROUTINE IS DEPRECATED!
   *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of reboot in reg CFG_REG_A
@@ -840,6 +933,7 @@ int32_t lis2mdl_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
 
 /**
   * @brief  Reboot memory content. Reload the calibration parameters.[get]
+  *         THIS ROUTINE IS DEPRECATED!
   *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of reboot in reg CFG_REG_A.(ptr)
