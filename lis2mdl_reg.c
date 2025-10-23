@@ -817,54 +817,6 @@ exit:
 }
 
 /**
-  * @brief  Software reset. Restore the default values in user registers.[set]
-  *         THIS ROUTINE IS DEPRECATED!
-  *
-  * @param  ctx   read / write interface definitions.(ptr)
-  * @param  val   change the values of soft_rst in reg CFG_REG_A
-  * @retval       interface status.(MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lis2mdl_reset_set(const stmdev_ctx_t *ctx, uint8_t val)
-{
-  lis2mdl_cfg_reg_a_t reg;
-  int32_t ret;
-
-  ret = lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-
-  if (ret == 0)
-  {
-    reg.soft_rst = val;
-    ret = lis2mdl_write_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-  }
-
-  return ret;
-}
-
-/**
-  * @brief  Software reset. Restore the default values in user registers.[get]
-  *         THIS ROUTINE IS DEPRECATED!
-  *
-  * @param  ctx   read / write interface definitions.(ptr)
-  * @param  val   change the values of soft_rst in reg CFG_REG_A.(ptr)
-  * @retval       interface status.(MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lis2mdl_reset_get(const stmdev_ctx_t *ctx, uint8_t *val)
-{
-  lis2mdl_cfg_reg_a_t reg;
-  int32_t ret;
-
-  ret = lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-
-  if (ret != 0) { return ret; }
-
-  *val = reg.soft_rst;
-
-  return ret;
-}
-
-/**
   * @brief  Reboot memory content. Reload the calibration paramters.
   * (20 ms boot procedure)
   *
@@ -903,54 +855,6 @@ int32_t lis2mdl_reboot(const stmdev_ctx_t *ctx)
   ctx->mdelay(20);
 
 exit:
-  return ret;
-}
-
-/**
-  * @brief  Reboot memory content. Reload the calibration parameters.[set]
-  *         THIS ROUTINE IS DEPRECATED!
-  *
-  * @param  ctx   read / write interface definitions.(ptr)
-  * @param  val   change the values of reboot in reg CFG_REG_A
-  * @retval       interface status.(MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lis2mdl_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
-{
-  lis2mdl_cfg_reg_a_t reg;
-  int32_t ret;
-
-  ret = lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-
-  if (ret == 0)
-  {
-    reg.reboot = val;
-    ret = lis2mdl_write_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-  }
-
-  return ret;
-}
-
-/**
-  * @brief  Reboot memory content. Reload the calibration parameters.[get]
-  *         THIS ROUTINE IS DEPRECATED!
-  *
-  * @param  ctx   read / write interface definitions.(ptr)
-  * @param  val   change the values of reboot in reg CFG_REG_A.(ptr)
-  * @retval       interface status.(MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lis2mdl_boot_get(const stmdev_ctx_t *ctx, uint8_t *val)
-{
-  lis2mdl_cfg_reg_a_t reg;
-  int32_t ret;
-
-  ret = lis2mdl_read_reg(ctx, LIS2MDL_CFG_REG_A, (uint8_t *)&reg, 1);
-
-  if (ret != 0) { return ret; }
-
-  *val = reg.reboot;
-
   return ret;
 }
 
