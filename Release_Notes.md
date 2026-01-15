@@ -124,13 +124,26 @@ This directory contains the LIS2MDL component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section8" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section8" aria-hidden="true">
 <label for="collapse-section8" aria-hidden="true">V2.2.1 / 05-Nov-2025</label>
 <div>
 
 ## Main changes
 
 - add a check for a DS constraint
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section9" checked aria-hidden="true">
+<label for="collapse-section9" aria-hidden="true">V2.3.0 / 15-Jan-2026</label>
+<div>
+
+## Main changes
+
+- Restore reset_set/get boot_set/get APIs for consistency
+- Add sw_reset and reboot procedures to align with application note, remove reset_set/get boot_set/get
 
 ##
 
