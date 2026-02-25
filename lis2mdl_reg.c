@@ -775,12 +775,13 @@ int32_t lis2mdl_device_id_get(const stmdev_ctx_t *ctx, uint8_t *buff)
 /**
   * @brief  Software reset. Restore the default values in user registers.[set]
   *
+  * Deprecated: Please use sw_reset to align with the AN
+  *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of soft_rst in reg CFG_REG_A
   * @retval       interface status.(MANDATORY: return 0 -> no Error)
   *
   */
-[[deprecated("Please use sw_reset to align with the AN")]]
 int32_t lis2mdl_reset_set(const stmdev_ctx_t *ctx, uint8_t val)
 {
   lis2mdl_cfg_reg_a_t reg;
@@ -800,12 +801,13 @@ int32_t lis2mdl_reset_set(const stmdev_ctx_t *ctx, uint8_t val)
 /**
   * @brief  Software reset. Restore the default values in user registers.[get]
   *
+  * Deprecated: Please use sw_reset to align with the AN
+  *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of soft_rst in reg CFG_REG_A.(ptr)
   * @retval       interface status.(MANDATORY: return 0 -> no Error)
   *
   */
-[[deprecated("Please use sw_reset to align with the AN")]]
 int32_t lis2mdl_reset_get(const stmdev_ctx_t *ctx, uint8_t *val)
 {
   lis2mdl_cfg_reg_a_t reg;
@@ -823,12 +825,13 @@ int32_t lis2mdl_reset_get(const stmdev_ctx_t *ctx, uint8_t *val)
 /**
   * @brief  Reboot memory content. Reload the calibration parameters.[set]
   *
+  * Deprecated: please use reboot to align with the AN
+  *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of reboot in reg CFG_REG_A
   * @retval       interface status.(MANDATORY: return 0 -> no Error)
   *
   */
-[[deprecated("Please use reboot to align with the AN")]]
 int32_t lis2mdl_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
 {
   lis2mdl_cfg_reg_a_t reg;
@@ -848,12 +851,13 @@ int32_t lis2mdl_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
 /**
   * @brief  Reboot memory content. Reload the calibration parameters.[get]
   *
+  * Deprecated: please use reboot to align with the AN
+  *
   * @param  ctx   read / write interface definitions.(ptr)
   * @param  val   change the values of reboot in reg CFG_REG_A.(ptr)
   * @retval       interface status.(MANDATORY: return 0 -> no Error)
   *
   */
-[[deprecated("Please use reboot to align with the AN")]]
 int32_t lis2mdl_boot_get(const stmdev_ctx_t *ctx, uint8_t *val)
 {
   lis2mdl_cfg_reg_a_t reg;
