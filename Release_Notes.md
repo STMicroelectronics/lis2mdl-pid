@@ -30,42 +30,75 @@ This directory contains the LIS2MDL component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section1" aria-hidden="true">
-<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
+<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
+<label for="collapse-section10" aria-hidden="true">V2.3.1 / 25-Feb-2026</label>
 <div>
 
 ## Main changes
 
-### First release
+- Fix [deprecated] clause
 
-- First official release [ref. DS v5.0]
+##
+
+</div>
+<input type="checkbox" id="collapse-section9" aria-hidden="true">
+<label for="collapse-section9" aria-hidden="true">V2.3.0 / 15-Jan-2026</label>
+<div>
+
+## Main changes
+
+- Restore reset_set/get boot_set/get APIs for consistency
+- Add sw_reset and reboot procedures to align with application note, remove reset_set/get boot_set/get
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section2" aria-hidden="true">
-<label for="collapse-section2" aria-hidden="true">V1.1.0 / 01-June-2023</label>
+<input type="checkbox" id="collapse-section8" aria-hidden="true">
+<label for="collapse-section8" aria-hidden="true">V2.2.1 / 05-Nov-2025</label>
 <div>
 
 ## Main changes
 
-- Add __weak directive to read/write registers routines
-- lis2mdl_reg.h: Extend stmdev_ctx_t structure with mdelay callback
-- repo name changed adding '-pid' extension.
-- lis2mdl_reg.c: Fix typos inlis2mdl_mag_user_offset_set routine
+- add a check for a DS constraint
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section3" aria-hidden="true">
-<label for="collapse-section3" aria-hidden="true">V1.1.1 / 09-Nov-2023</label>
+<input type="checkbox" id="collapse-section7" aria-hidden="true">
+<label for="collapse-section7" aria-hidden="true">V2.2.0 / 06-Oct-2025</label>
 <div>
 
 ## Main changes
 
-- The sensitivity is 8 LSB/C, but on 12bit resolution data. 
+- Added checks after reads to avoid write random content on pointers
+- Adding CODE_OF_CONDUCT.md and SECURITY.md
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section6" aria-hidden="true">
+<label for="collapse-section6" aria-hidden="true">V2.1.0 / 07-Jul-2025</label>
+<div>
+
+## Main changes
+
+- Fix driver formatting options
+- Added pointer to private data in stmdev_ctx_t
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section5" aria-hidden="true">
+<label for="collapse-section5" aria-hidden="true">V2.0.1 / 20-Jun-2024</label>
+<div>
+
+## Main changes
+
+- updated README.md file with tag reference and mdelay description
 
 ##
 
@@ -86,80 +119,47 @@ This directory contains the LIS2MDL component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section5" aria-hidden="true">
-<label for="collapse-section5" aria-hidden="true">V2.0.1 / 20-Jun-2024</label>
+<input type="checkbox" id="collapse-section3" aria-hidden="true">
+<label for="collapse-section3" aria-hidden="true">V1.1.1 / 09-Nov-2023</label>
 <div>
 
 ## Main changes
 
-- updated README.md file with tag reference and mdelay description
+- The sensitivity is 8 LSB/C, but on 12bit resolution data. 
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section6" aria-hidden="true">
-<label for="collapse-section6" aria-hidden="true">V2.1.0 / 07-Jul-2025</label>
+<input type="checkbox" id="collapse-section2" aria-hidden="true">
+<label for="collapse-section2" aria-hidden="true">V1.1.0 / 01-June-2023</label>
 <div>
 
 ## Main changes
 
-- Fix driver formatting options
-- Added pointer to private data in stmdev_ctx_t
+- Add __weak directive to read/write registers routines
+- lis2mdl_reg.h: Extend stmdev_ctx_t structure with mdelay callback
+- repo name changed adding '-pid' extension.
+- lis2mdl_reg.c: Fix typos inlis2mdl_mag_user_offset_set routine
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section7" aria-hidden="true">
-<label for="collapse-section7" aria-hidden="true">V2.2.0 / 06-Oct-2025</label>
+<input type="checkbox" id="collapse-section1" aria-hidden="true">
+<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
 <div>
 
 ## Main changes
 
-- Added checks after reads to avoid write random content on pointers
-- Adding CODE_OF_CONDUCT.md and SECURITY.md
+### First release
+
+- First official release [ref. DS v5.0]
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section8" aria-hidden="true">
-<label for="collapse-section8" aria-hidden="true">V2.2.1 / 05-Nov-2025</label>
-<div>
-
-## Main changes
-
-- add a check for a DS constraint
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section9" aria-hidden="true">
-<label for="collapse-section9" aria-hidden="true">V2.3.0 / 15-Jan-2026</label>
-<div>
-
-## Main changes
-
-- Restore reset_set/get boot_set/get APIs for consistency
-- Add sw_reset and reboot procedures to align with application note, remove reset_set/get boot_set/get
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
-<label for="collapse-section10" aria-hidden="true">V2.3.1 / 25-Feb-2026</label>
-<div>
-
-## Main changes
-
-- Fix [deprecated] clause
-
-##
-
-</div>
 :::
 
 
