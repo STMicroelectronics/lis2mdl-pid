@@ -225,15 +225,15 @@ int32_t lis2mdl_operating_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.md)
   {
-    case LIS2MDL_POWER_DOWN:
+    case 0x02:
       *val = LIS2MDL_POWER_DOWN;
       break;
 
-    case LIS2MDL_CONTINUOUS_MODE:
+    case 0x00:
       *val = LIS2MDL_CONTINUOUS_MODE;
       break;
 
-    case LIS2MDL_SINGLE_TRIGGER:
+    case 0x01:
       *val = LIS2MDL_SINGLE_TRIGGER;
       break;
 
@@ -288,19 +288,19 @@ int32_t lis2mdl_data_rate_get(const stmdev_ctx_t *ctx, lis2mdl_odr_t *val)
 
   switch (reg.odr)
   {
-    case LIS2MDL_ODR_10Hz:
+    case 0x00:
       *val = LIS2MDL_ODR_10Hz;
       break;
 
-    case LIS2MDL_ODR_20Hz:
+    case 0x01:
       *val = LIS2MDL_ODR_20Hz;
       break;
 
-    case LIS2MDL_ODR_50Hz:
+    case 0x02:
       *val = LIS2MDL_ODR_50Hz;
       break;
 
-    case LIS2MDL_ODR_100Hz:
+    case 0x03:
       *val = LIS2MDL_ODR_100Hz;
       break;
 
@@ -355,11 +355,11 @@ int32_t lis2mdl_power_mode_get(const stmdev_ctx_t *ctx, lis2mdl_lp_t *val)
 
   switch (reg.lp)
   {
-    case LIS2MDL_HIGH_RESOLUTION:
+    case 0x00:
       *val = LIS2MDL_HIGH_RESOLUTION;
       break;
 
-    case LIS2MDL_LOW_POWER:
+    case 0x01:
       *val = LIS2MDL_LOW_POWER;
       break;
 
@@ -462,11 +462,11 @@ int32_t lis2mdl_low_pass_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (reg.lpf)
   {
-    case LIS2MDL_ODR_DIV_2:
+    case 0x00:
       *val = LIS2MDL_ODR_DIV_2;
       break;
 
-    case LIS2MDL_ODR_DIV_4:
+    case 0x01:
       *val = LIS2MDL_ODR_DIV_4;
       break;
 
@@ -523,15 +523,15 @@ int32_t lis2mdl_set_rst_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.set_rst)
   {
-    case LIS2MDL_SET_SENS_ODR_DIV_63:
+    case 0x00:
       *val = LIS2MDL_SET_SENS_ODR_DIV_63;
       break;
 
-    case LIS2MDL_SENS_OFF_CANC_EVERY_ODR:
+    case 0x01:
       *val = LIS2MDL_SENS_OFF_CANC_EVERY_ODR;
       break;
 
-    case LIS2MDL_SET_SENS_ONLY_AT_POWER_ON:
+    case 0x02:
       *val = LIS2MDL_SET_SENS_ONLY_AT_POWER_ON;
       break;
 
@@ -1049,11 +1049,11 @@ int32_t lis2mdl_data_format_get(const stmdev_ctx_t *ctx, lis2mdl_ble_t *val)
 
   switch (reg.ble)
   {
-    case LIS2MDL_LSB_AT_LOW_ADD:
+    case 0x00:
       *val = LIS2MDL_LSB_AT_LOW_ADD;
       break;
 
-    case LIS2MDL_MSB_AT_LOW_ADD:
+    case 0x01:
       *val = LIS2MDL_MSB_AT_LOW_ADD;
       break;
 
@@ -1142,11 +1142,11 @@ int32_t lis2mdl_offset_int_conf_get(const stmdev_ctx_t *ctx,
 
   switch (reg.int_on_dataoff)
   {
-    case LIS2MDL_CHECK_BEFORE:
+    case 0x00:
       *val = LIS2MDL_CHECK_BEFORE;
       break;
 
-    case LIS2MDL_CHECK_AFTER:
+    case 0x01:
       *val = LIS2MDL_CHECK_AFTER;
       break;
 
@@ -1407,11 +1407,11 @@ int32_t lis2mdl_spi_mode_get(const stmdev_ctx_t *ctx, lis2mdl_sim_t *val)
 
   switch (reg._4wspi)
   {
-    case LIS2MDL_SPI_4_WIRE:
+    case 0x01:
       *val = LIS2MDL_SPI_4_WIRE;
       break;
 
-    case LIS2MDL_SPI_3_WIRE:
+    case 0x00:
       *val = LIS2MDL_SPI_3_WIRE;
       break;
 
@@ -1468,11 +1468,11 @@ int32_t lis2mdl_i2c_interface_get(const stmdev_ctx_t *ctx,
 
   switch (reg.i2c_dis)
   {
-    case LIS2MDL_I2C_ENABLE:
+    case 0x00:
       *val = LIS2MDL_I2C_ENABLE;
       break;
 
-    case LIS2MDL_I2C_DISABLE:
+    case 0x01:
       *val = LIS2MDL_I2C_DISABLE;
       break;
 
