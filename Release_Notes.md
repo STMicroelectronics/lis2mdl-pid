@@ -30,7 +30,19 @@ This directory contains the LIS2MDL component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section11" checked aria-hidden="true">
+<label for="collapse-section11" aria-hidden="true">V2.3.2 / 18-Mar-2026</label>
+<div>
+
+## Main changes
+
+- Change switch cases to use hex values
+- Re-order update history (most updated on top)
+
+##
+
+</div>
+<input type="checkbox" id="collapse-section10" aria-hidden="true">
 <label for="collapse-section10" aria-hidden="true">V2.3.1 / 25-Feb-2026</label>
 <div>
 
